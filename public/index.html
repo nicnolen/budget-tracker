@@ -60,4 +60,18 @@
     <script src="js/index.js" defer></script>
     <script src="js/idb.js" defer></script>
   </body>
+  <!-- Register the service worker -->
+  <script>
+    (function () {
+      // checks if service worker exists in the global `navigator` object
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('./js/service-worker.js')
+          .then(() => console.info('Service Worker registered successfully.'))
+          .catch(error =>
+            console.error('Service Worker registration failed:', error)
+          );
+      }
+    })();
+  </script>
 </html>
