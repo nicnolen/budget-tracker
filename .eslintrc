@@ -1,0 +1,7 @@
+// Have ESLint parsed by a compatible parser
+{
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false
+  }
+}
