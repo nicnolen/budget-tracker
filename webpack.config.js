@@ -3,15 +3,6 @@ const nodeExternals = require('webpack-node-externals');
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-// Configuration common to the front and back end
-const common = {
-  plugins: [
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'disable', // the report outputs to an HTML file in the dist folder. Set to 'static' to run and 'disable' to stop
-    }),
-  ],
-};
-
 // Backend configuration
 const backConfig = {
   target: 'node',
@@ -39,6 +30,13 @@ const frontConfig = {
     path: path.resolve(__dirname, 'dist/client'),
     filename: '[name].bundle.js',
   }, // take the entry point, bundle the code and output the bundled code to a specified folder
+
+  plugins: [
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disable', // the report outputs to an HTML file in the dist folder. Set to 'static' to run and 'disable' to stop
+    }),
+  ],
+
   mode: 'development',
 
   devServer: {
@@ -47,9 +45,4 @@ const frontConfig = {
 };
 
 // Combined 'module.exports'
-module.exports = [
-  // assigned the common function to frontend configuration
-  Object.assign({}, common, frontConfig),
-  // assigned the common function to backend configuration
-  Object.assign({}, common, backConfig),
-];
+module.exports = [frontConfig, backConfig];
