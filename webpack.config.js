@@ -21,6 +21,7 @@ const frontConfig = {
   // relative path to the clients code
   entry: {
     app: './public/js/index.js',
+    idb: './public/js/idb.js'
   }, // root of the bundle
   output: {
     path: path.resolve(__dirname, 'dist/client'),
