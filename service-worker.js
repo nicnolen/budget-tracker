@@ -4,9 +4,9 @@ const CACHE_NAME = APP_PREFIX + VERSION;
 
 const FILES_TO_CACHE = [
   './index.html',
-  './css/styles.css',
-  './js/index.js',
-  './js/idb.js',
+  './public/css/styles.css',
+  './dist/client/app.bundle.js',
+  './dist/client/idb.bundle.js',
 ];
 
 // Cache resources and install the service worker
