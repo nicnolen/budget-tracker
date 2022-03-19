@@ -28,7 +28,7 @@
 
   For walkthroughs, see the videos below:
 
-  - Budget Tracker Walkthrough: <iframe src="https://drive.google.com/file/d/16SjfJz-8RvgqtBMWXgF3J0qPJ88mCvV_/preview" width="640" height="480"></iframe>
+  - Budget Tracker Walkthrough: https://drive.google.com/file/d/16SjfJz-8RvgqtBMWXgF3J0qPJ88mCvV_/preview
   - PWA Walkthrough: https://user-images.githubusercontent.com/88728912/159134690-c014a5da-6856-4195-a39b-23803874f9bd.mp4
 
 
