@@ -1,12 +1,14 @@
-// Create variable to hold db connection
+// create variable to hold db connection
 let db;
-// Establish a connection to IndexedDB database called `budget_tracker`
+
+// establish a connection to IndexedDB database called 'budget_tracker' and set it to version 1
 const request = indexedDB.open('budget_tracker', 1);
 
-// This event will emit if a new database is made or if the database version changes (nonexistant to version 1, v1 to v2, etc.)
+// this event will emit if the database version changes
 request.onupgradeneeded = function (event) {
   // save a reference to the database
   const db = event.target.result;
+
   // create an object store (table) called `new_transaction`, set it to have an auto incrementing primary key of sorts
   db.createObjectStore('new_transaction', { autoIncrement: true });
 };
@@ -69,11 +71,14 @@ function uploadTransaction() {
           if (serverResponse.message) {
             throw new Error(serverResponse);
           }
+
           // open one more transaction
           const transaction = db.transaction(['new_transaction'], 'readwrite');
+
           // access the new_transaction object store
           const transactionObjectStore =
             transaction.objectStore('new_transaction');
+
           // clear all items in your store
           transactionObjectStore.clear();
 

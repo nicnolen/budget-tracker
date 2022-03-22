@@ -24,7 +24,7 @@ self.addEventListener('install', function (e) {
     // find the cache by name and then add every file in the `FILES_TO_CACHE` array to the cache
     caches.open(CACHE_NAME).then(function (cache) {
       console.info('installing cache : ' + CACHE_NAME);
-      return cache.addAll(FILES_TO_CACHE)
+      return cache.addAll(FILES_TO_CACHE);
     })
   );
 }); // service workers run before the window object is created so we use self to instantiate listeners on the service worker
