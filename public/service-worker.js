@@ -23,8 +23,8 @@ self.addEventListener('install', function (e) {
   e.waitUntil(
     // find the cache by name and then add every file in the `FILES_TO_CACHE` array to the cache
     caches.open(CACHE_NAME).then(function (cache) {
-      console.info('Installing cache: ' + CACHE_NAME);
-      return cache.addAll(FILES_TO_CACHE);
+      console.info('installing cache : ' + CACHE_NAME);
+      return cache.addAll(FILES_TO_CACHE)
     })
   );
 }); // service workers run before the window object is created so we use self to instantiate listeners on the service worker
@@ -44,7 +44,7 @@ self.addEventListener('activate', function (e) {
       return Promise.all(
         keyList.map(function (key, i) {
           if (cacheKeeplist.indexOf(key) === -1) {
-            console.log('deleting cache : ' + keyList[i]);
+            console.info('deleting cache : ' + keyList[i]);
             return caches.delete(keyList[i]);
           }
         })
@@ -55,17 +55,17 @@ self.addEventListener('activate', function (e) {
 
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
-  console.log('fetch request : ' + e.request.url);
+  console.info('fetch request : ' + e.request.url);
   e.respondWith(
     // see if the resource already exists in `caches`
     caches.match(e.request).then(function (request) {
       if (request) {
         // if cache is available, respond with cache
-        console.log('responding with cache : ' + e.request.url);
+        console.info('responding with cache : ' + e.request.url);
         return request;
       } else {
         // if there are no cache, try fetching request
-        console.log('file is not cached, fetching : ' + e.request.url);
+        console.info('file is not cached, fetching : ' + e.request.url);
         return fetch(e.request);
       }
     })
