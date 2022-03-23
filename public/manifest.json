@@ -45,7 +45,7 @@
   "short_name": "Budget Tracker",
   "orientation": "portrait",
   "display": "standalone",
-  "start_url": "/",
+  "start_url": "./index.html",
   "description": "A budget tracker where users can add expenses and deposits to their budget with or without a connection.",
   "background_color": "#ffffff",
   "theme_color": "#ffffff"
