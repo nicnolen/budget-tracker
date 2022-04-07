@@ -1,18 +1,18 @@
 # Automatic deployment to Heroku
 name: Deploy
 
-    on:
-      push:
-        branches:
-          - main
+on:
+  push:
+    branches:
+      - main
 
-    jobs:
-      build:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-          - uses: akhileshns/heroku-deploy@v3.12.11
-            with:
-              heroku_api_key: ${{secrets.c7c6bc5b-47b1-4e88-83b8-b577149d14ae}}
-              heroku_app_name: "shielded-plains-67292"
-              heroku_email: "nicnolen@ymail.com"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.11
+        with:
+          heroku_api_key: ${{secrets.c7c6bc5b-47b1-4e88-83b8-b577149d14ae}}
+          heroku_app_name: "shielded-plains-67292"
+          heroku_email: "nicnolen@ymail.com"
